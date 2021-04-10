@@ -1,0 +1,21 @@
+<h1>Mission List</h1>
+<br>
+<nav>
+  <mat-card *ngFor="let mission of missions">
+    <img
+      mat-card-mat-card-matCardImageSmall
+      [src]="mission.links.mission_patch_small"
+    />
+    <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+    <mat-card-content>{{ mission.launch_year }}</mat-card-content>
+    <mat-card-content>{{ mission.details }}</mat-card-content>
+    <!-- <button mat-raised-button color="primary" (click)=onButtonClick()>Mission Details</button> -->
+    <button mat-mat-raised-button (click)="onClick(mission)">More Details</button>
+    <app-missiondetails
+      *ngIf="moreDetails && mission == currentMission"
+      [mission]="mission"
+    >
+    </app-missiondetails>
+  </mat-card>
+</nav>
+<router-outlet></router-outlet>
